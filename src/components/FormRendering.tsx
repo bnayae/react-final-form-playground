@@ -52,6 +52,8 @@ export default function FormRendering(props: IFormRenderingProps) {
     return (
         <Form onSubmit={showResult} subscription={{ submitting: true }}>
             {({ handleSubmit, submitting, values }) => (
+                <>
+                <h4>Rendering</h4>
                 <form onSubmit={handleSubmit}>
                     <Field name="firstName" placeholder="First Name" validate={required}>
                         {({ meta, input, placeholder }: IFinalState<string>) => (
@@ -98,6 +100,7 @@ export default function FormRendering(props: IFormRenderingProps) {
                         }
                     </FormSpy>
                 </form>
+                </>
             )}
         </Form >
     )

@@ -31,52 +31,55 @@ export default function BasicSample(props: IBasicSampleProps) {
     return (
         <Form onSubmit={showResult}>
             {({ handleSubmit, submitting, values }) => (
-                < form onSubmit={handleSubmit}>
-                    <label>First Name</label>
-                    <Field name="firstName" component="input" placeHolder="First Name" validate={required} />
-                    <br />
-                    <Field name="firstName" component="input" placeHolder="First Name">
-                        {(fieldState: IFinalState<string>) => fieldState.meta.invalid && fieldState.meta.touched && <span style={{ color: "red" }}>{fieldState.meta.error}</span>}
-                    </Field>
+                <>
+                    <h4>Basic Sample</h4>
+                    < form onSubmit={handleSubmit}>
+                        <label>First Name</label>
+                        <Field name="firstName" component="input" placeHolder="First Name" validate={required} />
+                        <br />
+                        <Field name="firstName" component="input" placeHolder="First Name">
+                            {(fieldState: IFinalState<string>) => fieldState.meta.invalid && fieldState.meta.touched && <span style={{ color: "red" }}>{fieldState.meta.error}</span>}
+                        </Field>
 
-                    <Field name="firstName" component="input" placeHolder="First Name">
-                        {(fieldState: IFinalState<string>) => <pre>{JSON.stringify(fieldState, undefined, 2)}</pre>}
-                    </Field>
-                    < br />
+                        <Field name="firstName" component="input" placeHolder="First Name">
+                            {(fieldState: IFinalState<string>) => <pre>{JSON.stringify(fieldState, undefined, 2)}</pre>}
+                        </Field>
+                        < br />
 
 
-                    <Field name="lastName" placeholder="Last Name" validate={required}>
-                        {({ meta, input, placeholder }: IFinalState<string>) => (
-                            <>
-                                <label>{input.name}</label>
-                                <input {...input} placeholder={placeholder} />
-                                {meta.invalid && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
-                            </>)
-                        }
-                    </Field>
-                    <br />
-                    <Field name="phone" placeholder="Phone" validate={required}>
-                        {(fieldState: IFinalState<string>) => {
-                            const { meta, input, placeholder } = fieldState;
-                            return (
+                        <Field name="lastName" placeholder="Last Name" validate={required}>
+                            {({ meta, input, placeholder }: IFinalState<string>) => (
                                 <>
                                     <label>{input.name}</label>
                                     <input {...input} placeholder={placeholder} />
                                     {meta.invalid && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
-                                </>);
-                        }}
-                    </Field>
-                    {/* <br />
+                                </>)
+                            }
+                        </Field>
+                        <br />
+                        <Field name="phone" placeholder="Phone" validate={required}>
+                            {(fieldState: IFinalState<string>) => {
+                                const { meta, input, placeholder } = fieldState;
+                                return (
+                                    <>
+                                        <label>{input.name}</label>
+                                        <input {...input} placeholder={placeholder} />
+                                        {meta.invalid && meta.touched && <span style={{ color: "red" }}>{meta.error}</span>}
+                                    </>);
+                            }}
+                        </Field>
+                        {/* <br />
                     <Field name="phone" component="input" placeHolder="First Name">
                         {({ input }: IFinalState<string>) => <pre>{JSON.stringify(input, undefined, 2)}</pre>}
                     </Field>
                     <Field name="phone" component="input" placeHolder="First Name">
                         {({ meta }: IFinalState<string>) => <pre>{JSON.stringify(meta, undefined, 2)}</pre>}
                     </Field> */}
-                    <button type="submit" disabled={submitting}>Submit</button>
-                    <br />
-                    <pre style={{ textAlign: "left" }}>{JSON.stringify(values, undefined, 2)}</pre>
-                </form>
+                        <button type="submit" disabled={submitting}>Submit</button>
+                        <br />
+                        <pre style={{ textAlign: "left" }}>{JSON.stringify(values, undefined, 2)}</pre>
+                    </form>
+                </>
             )}
         </Form >
     )

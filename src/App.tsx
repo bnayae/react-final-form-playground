@@ -7,6 +7,7 @@ import "./App.css";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import BasicSample from "./components/BasicSample";
 import FormRendering from "./components/FormRendering";
+import FormErrorFocus from "./components/FormErrorFocus";
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const App: React.FC = () => {
           <li>
             <Link to="/rendering">Form Rendering</Link>
           </li>
+          <li>
+            <Link to="/error-focus">Error Focus</Link>
+          </li>
         </ul>
 
         <hr />
@@ -29,6 +33,7 @@ const App: React.FC = () => {
         <Route exact path="/" component={FormRendering} />
         <Route path="/basic-sample" component={BasicSample} />
         <Route path="/rendering" component={FormRendering} />
+        <Route path="/error-focus" component={FormErrorFocus} />
       </div>
     </Router>
   );
