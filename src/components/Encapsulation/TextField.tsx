@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Field, FieldRenderProps, FieldProps } from 'react-final-form';
 import { TextField, makeStyles, createStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
+// import { FieldValidator } from 'final-form';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,9 +17,9 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export interface ITestFieldProps extends FieldProps<string, HTMLElement> {
-    name: string;
-    placeholder: string;
-    validation?: (value: string) => string | undefined;
+    // name: string;
+    // placeholder: string;
+    // validate?: FieldValidator<string>;
 }
 
 export interface IFinalState extends FieldRenderProps<string, HTMLElement> {
@@ -29,7 +30,8 @@ export default function TestField(props: ITestFieldProps) {
     const classes = useStyles();
 
     return (
-        <Field name={props.name} placeholder={props.placeholder} validate={props.validation}>
+        // <Field name={props.name} placeholder={props.placeholder} validate={s => props.validate(s) || required(s)}>
+        <Field {...props}>
             {({ meta, input, placeholder }: IFinalState) => (
                 <TextField {...input} label={placeholder}
                     className={meta.active ? clsx(classes.textField, classes.active) : classes.textField}
