@@ -10,7 +10,7 @@ import { Form, FieldRenderProps, FormSpy } from "react-final-form";
 import {
     Button
 } from "@material-ui/core";
-import TestField from './Encapsulation/TextField'
+import TextField from './Encapsulation/TextField'
 import createDecorator from 'final-form-focus' // https://github.com/final-form/final-form-focus and https://www.detroitlabs.com/blog/2018/02/28/adding-custom-type-definitions-to-a-third-party-library/
 
 export interface IValues {
@@ -52,25 +52,25 @@ export default function FormErrorFocus() {
                 <>
                     <h4>Error Focus</h4>
                     <form onSubmit={handleSubmit}>
-                        <TestField name="firstName" placeholder="First Name" validate={required} />
+                        <TextField name="firstName" placeholder="First Name" validate={required} />
                         <br />
-                        <TestField name="lastName" placeholder="Last Name" validate={required} />
+                        <TextField name="lastName" placeholder="Last Name" validate={required} />
                         <br />
-                        <TestField name="phone" placeholder="Phone" validate={required} />
+                        <TextField name="phone" placeholder="Phone" validate={required} />
                         <br />
-                        <TestField name="a" placeholder="A" validate={required} />
+                        <TextField name="a" placeholder="A" validate={required} />
                         <br />
-                        <TestField name="b" placeholder="B" validate={required} />
+                        <TextField name="b" placeholder="B" validate={required} />
                         <br />
-                        <TestField name="c" placeholder="C" validate={required} />
+                        <TextField name="c" placeholder="C" validate={required} />
                         <br />
-                        <TestField name="d" placeholder="D" validate={required} />
+                        <TextField name="d" placeholder="D" validate={required} />
                         <br />
-                        <TestField name="e" placeholder="E" validate={required} />
+                        <TextField name="e" placeholder="E" validate={required} />
                         <br />
-                        <TestField name="f" placeholder="F" validate={required} />
+                        <TextField name="f" placeholder="F" validate={required} />
                         <br />
-                        <TestField name="g" placeholder="G" validate={required} />
+                        <TextField name="g" placeholder="G" validate={required} />
                         <br />
                         <Button variant="outlined" type="submit" disabled={submitting}>Submit</Button>
                         <br />

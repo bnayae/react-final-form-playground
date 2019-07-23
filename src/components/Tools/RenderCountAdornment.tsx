@@ -12,7 +12,10 @@ const useStyles = makeStyles((theme: Theme) =>
     chip: {
       // color: theme.palette.secondary.main
       background: "#666",
-      color: "#EEE"
+      color: "#EEE",
+      maxWidth: "23px",
+      maxHeight: "23px",
+      fontSize: 12
     }
   }),
 );
@@ -28,6 +31,6 @@ export default function RenderCountAdornment(props: IRenderCountProps) {
   });
 
   return (
-    <InputAdornment position="end"><Chip label={count} className={classes.chip} /></InputAdornment>
+    <InputAdornment position="end"><Chip label={count < 100 ? count : "99+"} className={classes.chip} /></InputAdornment>
   );
 }

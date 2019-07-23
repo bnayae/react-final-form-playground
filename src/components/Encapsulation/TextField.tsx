@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Field, FieldRenderProps, FieldProps } from 'react-final-form';
 import { TextField, makeStyles, createStyles, Theme } from '@material-ui/core';
 import clsx from 'clsx';
+import RenderCountAdornment from "../Tools/RenderCountAdornment";
 // import { FieldValidator } from 'final-form';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -24,6 +25,7 @@ export interface ITestFieldProps extends FieldProps<string, HTMLElement> {
 
 export interface IFinalState extends FieldRenderProps<string, HTMLElement> {
     placeholder: string;
+    renderCount?: boolean
 }
 
 export default function TestField(props: ITestFieldProps) {
@@ -37,7 +39,10 @@ export default function TestField(props: ITestFieldProps) {
                     className={meta.active ? clsx(classes.textField, classes.active) : classes.textField}
                     error={meta.invalid && meta.touched && meta.error}
                     helperText={meta.invalid && meta.touched && meta.error}
-                    variant="outlined" margin="dense" />)
+                    variant="outlined" margin="dense"
+                    InputProps={props.renderCount && {
+                        endAdornment: <RenderCountAdornment />,
+                    }} />)
             }
         </Field>
     );
